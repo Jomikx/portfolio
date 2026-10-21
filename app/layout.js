@@ -2,19 +2,19 @@ import "./globals.css";
 import { site } from "../lib/content";
 
 export const metadata = {
-  metadataBase: new URL("https://aljo-tacud.vercel.app"),
+  metadataBase: new URL("https://aljotacud.vercel.app"),
   title: `${site.name} · Portfolio`,
   description:
     "Portfolio of Aljo M. Tacud, a full-stack web developer and BS Computer Science student in Marilao, Bulacan. Building with React and Flutter, with AI and strong fundamentals.",
   openGraph: {
     title: `${site.name} · Portfolio`,
     description: "Full-stack web developer and BS Computer Science student in Marilao, Bulacan.",
-    url: "https://aljo-tacud.vercel.app",
+    url: "https://aljotacud.vercel.app",
     siteName: "Aljo Tacud",
     type: "website",
     images: [
       {
-        url: "https://aljo-tacud.vercel.app/og.png",
+        url: "https://aljotacud.vercel.app/og.png",
         width: 1200,
         height: 630,
         alt: "Aljo Tacud, full-stack web developer",
@@ -23,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["https://aljo-tacud.vercel.app/og.png"],
+    images: ["https://aljotacud.vercel.app/og.png"],
   },
 };
 
