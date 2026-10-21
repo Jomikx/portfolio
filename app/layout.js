@@ -2,9 +2,16 @@ import "./globals.css";
 import { site } from "../lib/content";
 
 export const metadata = {
+  metadataBase: new URL("https://aljo-tacud.vercel.app"),
   title: `${site.name} · Portfolio`,
   description:
     "Portfolio of Aljo M. Tacud, a full-stack web developer and BS Computer Science student in Marilao, Bulacan. Building with React and Flutter, with AI and strong fundamentals.",
+  openGraph: {
+    title: `${site.name} · Portfolio`,
+    description: "Full-stack web developer and BS Computer Science student in Marilao, Bulacan.",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport = {
