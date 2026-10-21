@@ -1,0 +1,122 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: AliceBlue;
+    color: DarkSlateGray;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 16px;
+}
+
+#formbox {
+    width: 100%;
+    max-width: 460px;
+    background-color: White;
+    border: 1px solid LightSteelBlue;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 24px;
+}
+
+#formbox img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+#firstname,
+#subtitle,
+#displayname,
+#webtext {
+    text-align: center;
+    padding: 0 24px;
+}
+
+#firstname {
+    font-size: 32px;
+    margin-top: 6px;
+}
+
+#subtitle {
+    color: DimGray;
+}
+
+#nameinput,
+#yearselect {
+    margin: 0 24px;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid LightSteelBlue;
+    border-radius: 8px;
+    background-color: White;
+    color: DarkSlateGray;
+}
+
+#nameinput:focus,
+#yearselect:focus,
+button:focus-visible {
+    outline: 3px solid Plum;
+    outline-offset: 2px;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 24px;
+}
+
+button {
+    padding: 10px 16px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: Plum;
+    color: DarkSlateGray;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: Orchid;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#displayname {
+    font-size: 20px;
+    min-height: 24px;
+}
+
+#webtext {
+    color: DimGray;
+    min-height: 22px;
+}
+
+#statusbar {
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background-color: LightSteelBlue;
+    color: DarkSlateGray;
+    font-size: 14px;
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 3</title>
+    <script src="jquery.min.js"></script>
+
+<style>
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 20px 40px;
+        color: black;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        border: 1px solid lightgray;
+        padding: 15px;
+        width: 320px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        background-color: white;
+
+    }
+
+    .card p {
+        margin: 8px 0;
+    }
+
+    button {
+        padding: 8px 14px;
+        margin-right: 5px;
+        cursor: pointer;
+        border: 1px solid;
+        border-radius: 4px;
+        background-color: gainsboro;
+        font-weight: bold;
+    }
+
+    select {
+        padding: 6px;
+        width: 220px;
+        margin-top: 10px;
+        display: block;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 15px;
+    }
+
+    th, td {
+        border: 1px solid gray;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: burlywood;
+    }
+
+    .messagedisplay {
+        font-size: 14px;
+        font-weight: bold;
+        color: black;
+        margin: 10px 0;
+        min-height: 20px;
+    }
+
+    hr {
+        margin: 25px 0;
+        border: 0;
+        border-top: 1px solid lightgray;
+    }
+
+
+
+</style>
+
+
+</head>
+<body>
+    
+
+    <div id="title">
+
+        <h1 id="title">Welcome, Students!</h1>
+        <p id="text1">welcome to my interactive profile!</p>
+
+
+    </div>
+
+    <div class="card">
+
+        <h3>Student Information</h3>
+        <p id="name">Name: Aljo Tacud</p>
+        <p id="course">Course: BSCS</p>
+        <p id="yearlevel">Year Level: 3rd Year</p>
+    </div>
+
+    <button id="btn">Change Title</button>
+    <button id="btn2">Hide Profile</button>
+    <button id="btn3">Show profile</button>
+
+    <p id="message">Interact with the buttons above</p>
+
+
+    <hr>
+    <h3>Choose Your Course</h3>
+    <select id="courseselect">
+        <option value="" selected disabled>Select Course</option>
+        <option value="BSCS">BSCS</option>
+        <option value="BSIT">BSIT</option>
+        <option value="BSIS">BSIS</option>
+    </select>
+
+    <hr>
+    <h3>Student List</h3>
+    <p>Registered Students: </p>
+
+    <table align="center">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Aljo</td>
+            <td>BSIT</td>
+            <td>3rd Year</td>
+        </tr>
+        
+        <tr>
+            <td>2</td>
+            <td>Jovan</td>
+            <td>BSCS</td>
+            <td>3rd Year</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Allyn</td>
+            <td>BSIS</td>
+            <td>3rd Year</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>Tampioc</td>
+            <td>BSIT</td>
+            <td>3rd Year</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <div>
+        <button id="buttonodd">Apply Odd Rows</button>
+        <button id="buttoneven">Apply Even Rows</button>
+        <button id="tableshow">Show Table</button>
+        <button id="tablehide">Hide Table</button>
+    </div>
+
+    <p id="message2">Interact with the buttons above</p>
+
+    
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
