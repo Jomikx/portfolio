@@ -9,21 +9,14 @@ export default function Home() {
       <header className="hero">
         <HeadPhoto />
         <div>
+          <div className="eyebrow"><i aria-hidden="true" />full-stack web developer</div>
           <h1 data-tour="name">Aljo Tacud</h1>
           <p>{site.intro}</p>
-          <p className="sub">{site.school}</p>
+          <p className="sub"><span aria-hidden="true">⌖</span> {site.school}</p>
           <div className="social">
             <a href={site.github} target="_blank" rel="noopener noreferrer">github ↗</a>
             <a href={site.facebook} target="_blank" rel="noopener noreferrer">facebook ↗</a>
             <a href={`mailto:${site.email}`}>email</a>
-            <a
-              className="dc"
-              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              don&apos;t click me
-            </a>
           </div>
         </div>
       </header>
@@ -133,6 +126,14 @@ export default function Home() {
 
       <footer>
         <span>{site.name}</span>
+        <a
+          className="dc"
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          don&apos;t click me
+        </a>
         <span>{site.location}</span>
       </footer>
     </Shell>
