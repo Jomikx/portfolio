@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 
 const STEPS = [
   { t: "name", text: "Hi! I'm Aljo, welcome to my portfolio." },
-  { t: "facts", text: "My school, my OJT, and two school activities you can open." },
+  { t: "facts", text: "My school, my OJT, and three school activities you can open." },
   { t: "nav-ba", text: "Here is how I built sites before AI, and how I build now." },
   { t: "nav-projects", text: "My school activities. Each one opens as its own page." },
-  { t: "nav-workshop", text: "Hands-on IT work from my OJT at an ISP office." },
+  { t: "nav-workshop", text: "Hands-on IT work from my OJT at RACITELCOM, Inc." },
   { t: "nav-basics", text: "The fundamentals I still do by hand." },
   { t: "nav-stack", text: "The tools I build with." },
   { t: "nav-contact", text: "Email, GitHub or Facebook. No forms." },

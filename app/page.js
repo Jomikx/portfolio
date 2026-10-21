@@ -73,7 +73,7 @@ export default function Home() {
         <div className="hd"><h2>03 — workshop</h2></div>
         <div>
           <h3>Hands-on IT work</h3>
-          <p className="lede">From my OJT at an ISP IT office, plus repair work.</p>
+          <p className="lede">From my OJT at RACITELCOM, Inc., plus repair work.</p>
           <div className="list">
             {workshop.map((w) => (
               <div key={w.title}>
