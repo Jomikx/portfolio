@@ -14,7 +14,8 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://aljotacud.vercel.app/og.png",
+        url: "https://aljotacud.vercel.app/og.jpg",
+        type: "image/jpeg",
         width: 1200,
         height: 630,
         alt: "Aljo Tacud, full-stack web developer",
@@ -23,7 +24,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["https://aljotacud.vercel.app/og.png"],
+    images: ["https://aljotacud.vercel.app/og.jpg"],
   },
 };
 
