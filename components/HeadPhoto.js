@@ -14,8 +14,6 @@ const POS = {
   "down-right": [0.707, -0.707],
 };
 const ALL = ["center", ...Object.keys(POS)];
-// Order used when nobody is touching the screen on a phone or tablet
-const SWEEP = ["center", "right", "down-right", "down", "down-left", "left", "up-left", "up", "up-right"];
 
 export default function HeadPhoto() {
   const [cur, setCur] = useState("center");
@@ -95,25 +93,11 @@ export default function HeadPhoto() {
     document.addEventListener("pointerleave", onLeave);
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    // Phones and tablets have no hover, so look around on its own until someone touches the screen
-    let sweep = null;
-    const noHover = window.matchMedia("(hover: none)").matches;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (noHover && !reduce) {
-      let i = 0;
-      sweep = setInterval(() => {
-        if (touched) return; // once someone touches the screen, stay where it is looking
-        i = (i + 1) % SWEEP.length;
-        show(SWEEP[i]);
-      }, 1300);
-    }
-
     return () => {
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerdown", onMove);
       document.removeEventListener("pointerleave", onLeave);
       window.removeEventListener("scroll", onScroll);
-      if (sweep) clearInterval(sweep);
     };
   }, []);
 
