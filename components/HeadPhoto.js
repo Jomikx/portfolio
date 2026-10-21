@@ -31,6 +31,7 @@ export default function HeadPhoto() {
 
   useEffect(() => {
     let queued = false;
+    let touched = false;
     let px = 0;
     let py = 0;
 
@@ -47,7 +48,7 @@ export default function HeadPhoto() {
       const dy = r.top + r.height * 0.4 - py;
       const d = Math.sqrt(dx * dx + dy * dy);
       const c = curRef.current;
-      if (d < (c === "center" ? 70 : 50)) {
+      if (d < (c === "center" ? 36 : 26)) {
         show("center");
         return;
       }
@@ -69,6 +70,7 @@ export default function HeadPhoto() {
 
     function onMove(e) {
       last.current = Date.now();
+      touched = true;
       px = e.clientX;
       py = e.clientY;
       if (!queued) {
@@ -77,13 +79,21 @@ export default function HeadPhoto() {
       }
     }
 
-    function onLeave() {
+    function onLeave(e) {
+      // only a mouse leaving the window recentres; a finger lifting must not
+      if (e && e.pointerType && e.pointerType !== "mouse") return;
       show("center");
+    }
+    function onScroll() {
+      if (!touched || queued) return;
+      queued = true;
+      requestAnimationFrame(update);
     }
 
     window.addEventListener("pointermove", onMove);
     window.addEventListener("pointerdown", onMove);
     document.addEventListener("pointerleave", onLeave);
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     // Phones and tablets have no hover, so look around on its own until someone touches the screen
     let sweep = null;
@@ -92,7 +102,7 @@ export default function HeadPhoto() {
     if (noHover && !reduce) {
       let i = 0;
       sweep = setInterval(() => {
-        if (Date.now() - last.current < 3500) return;
+        if (touched) return; // once someone touches the screen, stay where it is looking
         i = (i + 1) % SWEEP.length;
         show(SWEEP[i]);
       }, 1300);
@@ -102,6 +112,7 @@ export default function HeadPhoto() {
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerdown", onMove);
       document.removeEventListener("pointerleave", onLeave);
+      window.removeEventListener("scroll", onScroll);
       if (sweep) clearInterval(sweep);
     };
   }, []);
