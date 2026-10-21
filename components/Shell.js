@@ -9,6 +9,7 @@ export default function Shell({ children }) {
   const [theme, setTheme] = useState("auto");
   const [time, setTime] = useState("");
   const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState(false);
   const [askOpen, setAskOpen] = useState(false);
   const [touring, setTouring] = useState(false);
   const [query, setQuery] = useState("");
@@ -88,6 +89,7 @@ export default function Shell({ children }) {
         setQuery("");
       }
       if (e.key === "Escape") {
+        setMenu(false);
         setOpen(false);
         setAskOpen(false);
       }
@@ -95,6 +97,11 @@ export default function Shell({ children }) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", menu);
+    return () => document.body.classList.remove("menu-open");
+  }, [menu]);
 
   useEffect(() => {
     if (open && inputRef.current) inputRef.current.focus();
@@ -112,7 +119,19 @@ export default function Shell({ children }) {
 
   return (
     <div className="app">
-      <aside className="side">
+      <header className="topbar">
+        <a className="tn" href="#top" onClick={() => setMenu(false)}>{site.short}</a>
+        <button
+          className="burger"
+          type="button"
+          aria-label={menu ? "Close menu" : "Open menu"}
+          aria-expanded={menu}
+          onClick={() => setMenu((v) => !v)}
+        >
+          <span aria-hidden="true">{menu ? "✕" : "☰"}</span>
+        </button>
+      </header>
+      <aside className={menu ? "side menu" : "side"}>
         <div>
           <div className="nm">{site.short}</div>
           <div className="loc">
@@ -126,6 +145,7 @@ export default function Shell({ children }) {
               key={s.id}
               href={`#${s.id}`}
               data-tour={`nav-${s.id}`}
+              onClick={() => setMenu(false)}
               aria-current={current === s.id ? "true" : undefined}
             >
               {s.label}
@@ -134,14 +154,14 @@ export default function Shell({ children }) {
         </nav>
         <div className="grow" />
         <hr />
-        <button className="keyrow" type="button" onClick={() => window.dispatchEvent(new Event("tour-toggle"))}>
+        <button className="keyrow tourrow" type="button" onClick={() => window.dispatchEvent(new Event("tour-toggle"))}>
           {touring ? "Skip the tour" : "Take the tour"} <kbd>↻</kbd>
         </button>
-        <button className="keyrow" data-tour="ask" type="button" onClick={() => setAskOpen(true)}>
-          Ask anything <kbd>Alt</kbd>+<kbd>K</kbd>
+        <button className="keyrow" data-tour="ask" type="button" onClick={() => { setMenu(false); setAskOpen(true); }}>
+          Ask anything <span className="kk"><kbd>Alt</kbd>+<kbd>K</kbd></span>
         </button>
-        <button className="keyrow" type="button" onClick={() => { setOpen(true); setQuery(""); }}>
-          Jump to section <kbd>Alt</kbd>+<kbd>J</kbd>
+        <button className="keyrow" type="button" onClick={() => { setMenu(false); setOpen(true); setQuery(""); }}>
+          Jump to section <span className="kk"><kbd>Alt</kbd>+<kbd>J</kbd></span>
         </button>
         <hr />
         <div className="seg" data-tour="theme" role="group" aria-label="Theme">
