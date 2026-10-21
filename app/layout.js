@@ -34,7 +34,7 @@ export const viewport = {
   viewportFit: "cover",
 };
 
-const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}`;
+const themeScript = `var t=null;try{t=localStorage.getItem("theme")}catch(e){}if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);else if(t!=="auto")document.documentElement.setAttribute("data-theme","dark");`;
 
 export default function RootLayout({ children }) {
   return (

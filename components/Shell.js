@@ -6,7 +6,7 @@ import Ask from "./Ask";
 import Tour from "./Tour";
 
 export default function Shell({ children }) {
-  const [theme, setTheme] = useState("auto");
+  const [theme, setTheme] = useState("dark");
   const [time, setTime] = useState("");
   const [open, setOpen] = useState(false);
   const [menu, setMenu] = useState(false);
@@ -26,7 +26,7 @@ export default function Shell({ children }) {
   useEffect(() => {
     try {
       const t = localStorage.getItem("theme");
-      if (t === "light" || t === "dark") setTheme(t);
+      if (t === "light" || t === "dark" || t === "auto") setTheme(t);
     } catch (e) {}
   }, []);
 
